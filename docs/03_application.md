@@ -1,6 +1,6 @@
 ---
-id: syntax_application
-title: Application Order
+id: 03_application
+title: Application
 ---
 
 The most important thing you should know about Una is how application order works.

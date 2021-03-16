@@ -1,7 +1,6 @@
 ---
-id: install
+id: 01_install
 title: Installation
-sidebar_label: Installation
 slug: /
 ---
 
