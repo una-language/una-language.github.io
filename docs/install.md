@@ -19,7 +19,55 @@ Add the babel plugin to your `babel.config.js`:
 }
 ```
 
-The following setup process depends on your platform:
-- [NodeJS](setup_node)
-- [React](setup_react)
-- [React Native](setup_react_native)
+The following setup process depends on your platform.
+
+## NodeJS
+
+If you use `require` instead of `import` you need to pass `modules: 'require'` property to your plugin configuration in `babel.config.js` like this:
+
+```javascript
+{
+    plugins: [['una-language', { modules: 'require' }]],
+}
+```
+
+Add `una` extension to cli properties of `babel` and `babel-node` scripts in `package.json` like this:
+
+```javascript
+{
+  "scripts": {
+      "build": "babel src -d build --extensions .una",
+      "start": "babel-node --extensions .una src"
+  }
+}
+```
+
+## React
+
+I assume that you use `create-react-app`.
+
+Add `una` file extension to `moduleFileExtensions` in `config/paths.js` like this:
+
+```javascript
+const moduleFileExtensions = [..., 'una']
+```
+
+Then add `una` file extension to `babel-loader` in `config/webpack.config.js` like this:
+
+```javascript
+{
+    test: /\.(js|mjs|jsx|ts|tsx|una)$/
+}
+```
+
+## React Native
+
+Add `una` file extension to `metro.config.js` like this:
+
+```javascript
+module.exports = {
+    resolver: {
+        sourceExts: [..., 'una']
+    }
+}
+```
